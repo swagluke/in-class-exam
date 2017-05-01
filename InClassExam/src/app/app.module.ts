@@ -8,7 +8,9 @@ import { AppComponent } from './app.component';
 
 import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MaterialModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent
@@ -18,6 +20,9 @@ import { AngularFireModule } from 'angularfire2';
     FormsModule,
     HttpModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    FlexLayoutModule,
+    MaterialModule,
     AngularFireModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
