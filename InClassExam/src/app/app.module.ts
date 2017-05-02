@@ -15,11 +15,13 @@ import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SigninComponent } from './signin/signin.component';
 import { MainComponent } from './main/main.component';
+import { ReversePipe } from './reverse.pipe';
 @NgModule({
   declarations: [
     AppComponent,
     SigninComponent,
     MainComponent,
+    ReversePipe
   ],
   imports: [
     BrowserModule,

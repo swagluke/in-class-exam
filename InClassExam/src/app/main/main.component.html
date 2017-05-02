@@ -1,34 +1,29 @@
-<div class="container">
-  <div class="well well-lg">
-    <form #mqForm="ngForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <input required type="text" class="form-control" name="Abbreviation" placeholder="Abbreviation" [(ngModel)]="formPost.abbreviation"><br>
-      </div>
-      <div class="form-group">
-        <input required type="text" class="form-control" name="Fullname" placeholder="Full name" [(ngModel)]="formPost.fullname">
-      </div>
-      <button [disabled]="!mqForm.form.valid" type="submit" class="btn btn-default pull-right">
-        {{'Save'}}
-      </button>
-      <div class="clearfix"></div>
+<div fxLayout="row">
+  <md-card fxLayout="column" fxFlex>
+    <form #mqForm="ngForm" (ngSubmit)="onSubmit()" fxLayout="column">
+      <md-input-container fxFlex>
+        <input required mdInput placeholder="Abbreviation" name="abbreviation" [(ngModel)]="formPost.abbreviation">
+      </md-input-container>
+      <md-input-container fxFlex>
+        <input required mdInput placeholder="Full Name" name="name" [(ngModel)]="formPost.fullname">
+      </md-input-container>
+      <div><span fxFlex></span>
+      <button [disabled]="!mqForm.form.valid" type="submit" md-button>Save
+        </button></div>
     </form>
-  </div>
+  </md-card>
 </div>
-<hr>
-<div class="container">
-  <div class="panel">
-    <table class="table table-striped">
-      <tbody>
-        <tr *ngFor="let post of PostStream | async ">
-          <td>{{post.abbreviation}}</td>
-          <td>{{post.fullname}}</td>
-          <td>
-            <button type="button" class="btn btn-success btn-xs" (click)="delete(post)">
-              <span class="glyphicon glyphicon-trash"></span>
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<div fxLayout="row">
+  <md-card fxLayout="column" fxFlex>
+    <md-list>
+      <md-list-item *ngFor="let post of PostStream | async | reverse">
+        <b>{{ post.abbreviation}}</b>
+        <span fxFlex></span>
+        {{ post.fullname }}
+        <button md-icon-button (click)="delete(post)">
+          <md-icon>delete</md-icon>
+          </button>
+      </md-list-item>
+    </md-list>
+  </md-card>
 </div>
