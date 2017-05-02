@@ -1,3 +1,34 @@
-<p>
-  main works!
-</p>
+<div class="container">
+  <div class="well well-lg">
+    <form #mqForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <input required type="text" class="form-control" name="Abbreviation" placeholder="Abbreviation" [(ngModel)]="formPost.abbreviation"><br>
+      </div>
+      <div class="form-group">
+        <input required type="text" class="form-control" name="Fullname" placeholder="Full name" [(ngModel)]="formPost.fullname">
+      </div>
+      <button [disabled]="!mqForm.form.valid" type="submit" class="btn btn-default pull-right">
+        {{'Save'}}
+      </button>
+      <div class="clearfix"></div>
+    </form>
+  </div>
+</div>
+<hr>
+<div class="container">
+  <div class="panel">
+    <table class="table table-striped">
+      <tbody>
+        <tr *ngFor="let post of PostStream | async ">
+          <td>{{post.abbreviation}}</td>
+          <td>{{post.fullname}}</td>
+          <td>
+            <button type="button" class="btn btn-success btn-xs" (click)="delete(post)">
+              <span class="glyphicon glyphicon-trash"></span>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

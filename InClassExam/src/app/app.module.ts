@@ -19,7 +19,7 @@ import { MainComponent } from './main/main.component';
   declarations: [
     AppComponent,
     SigninComponent,
-    MainComponent
+    MainComponent,
   ],
   imports: [
     BrowserModule,
