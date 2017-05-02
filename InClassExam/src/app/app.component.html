@@ -1,4 +1,8 @@
 <md-toolbar color="primary">
-  In-Class Exam
+  <span fxHide.xs>In-Class Exam</span>
+  <span fxHide.xs fxFlex></span>
+  <a md-button [routerLink]="['/list']" routerLinkActive="active">List</a>
+  <a md-button [routerLink]="['/signin']" routerLinkActive="active">Auth</a>
 </md-toolbar>
+
 <router-outlet></router-outlet>
